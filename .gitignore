@@ -1,0 +1,21 @@
+# # Ignore all
+*
+
+# # Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+/backup/
+/out/
+a04*
+/Assig*
+/.vscode/
+clist_test
+*vscode*
+robot_grader.*
+!robot_grader.sh
+Makefile
+clist*
+tmp.*
