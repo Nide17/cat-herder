@@ -54,7 +54,6 @@ void set_env(int n)
     {
         if (putenv(environ[i]) != 0)
         {
-            printf("Error: cannot set environment variable\n");
             perror("putenv");
             exit(1);
         }
@@ -65,7 +64,6 @@ void set_env(int n)
         // Parent environment variables + CATFOOD
         if (setenv("CATFOOD", "yummy", 1) != 0)
         {
-            printf("Error: cannot set environment variable\n");
             perror("setenv CATFOOD");
             exit(1);
         }
@@ -76,7 +74,6 @@ void set_env(int n)
         // Parent environment variables - KITTYLITTER
         if (unsetenv("KITTYLITTER") != 0)
         {
-            printf("Error: cannot unset environment variable\n");
             perror("unsetenv KITTYLITTER");
             exit(1);
         }
@@ -91,7 +88,6 @@ void set_env(int n)
         // Unsetting all environment variables
         if (clearenv() != 0)
         {
-            printf("Error: cannot clear environment variables\n");
             perror("clearenv");
             exit(1);
         }
@@ -99,14 +95,12 @@ void set_env(int n)
         // PATH and HOME set to parent's environment
         if (setenv("PATH", path, 1) != 0)
         {
-            printf("Error: cannot set environment variable\n");
             perror("setenv PATH");
             exit(1);
         }
 
         if (setenv("HOME", home, 1) != 0)
         {
-            printf("Error: cannot set environment variable\n");
             perror("setenv HOME");
             exit(1);
         }
@@ -114,7 +108,6 @@ void set_env(int n)
         // Parent environment variables + CATFOOD
         if (setenv("CATFOOD", "yummy", 1) != 0)
         {
-            printf("Error: cannot set environment variable\n");
             perror("setenv CATFOOD");
             exit(1);
         }
@@ -135,7 +128,6 @@ void exec_kitty(char *n)
     char *args[] = {KITTY, n, NULL};
     if (execv(KITTY, args) < 0)
     {
-        printf("Error: cannot execute kitty\n");
         perror("execv");
         exit(1);
     }
